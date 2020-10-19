@@ -1,0 +1,16 @@
+version: "3"
+services:
+  travel-plan-redis:
+    image: redis:5.0.5
+    container_name: redis.local
+    command: redis-server
+    ports:
+      - 6379:6379
+    volumes:
+      - /opt/redis/data:/data
+      - /opt/redis/logs:/logs
+
+networks:
+  default:
+    external:
+      name: test-dev-shared-network
